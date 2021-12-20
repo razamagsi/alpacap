@@ -134,8 +134,15 @@ else{
             </div>
   
    
+    <!--column chart-->
     <br><br>
-    <div id="chart_div" style="width: 100%; height: 500px;"></div>
+    <div id="columnchart_material" style="width: 100%; height: 500px;"></div>
+    <!--Pie chart-->
+    <br>
+    <div id="piechart" style="width: 100%; height: 500px;"></div>
+    <!--Line chart-->
+    <br>
+    <div id="line_top_x" style="width: 100%; height: 500px;"></div>
 
       
                
@@ -150,68 +157,114 @@ else{
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <!--column Chart-->
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart', 'bar']});
-      google.charts.setOnLoadCallback(drawStuff);
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
 
-      function drawStuff() {
-
-        var button = document.getElementById('change-chart');
-        var chartDiv = document.getElementById('chart_div');
-
+      function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Year 2021', 'Sales', 'Energy'],
-          ['January', 8000, 23.3],
-          ['february', 24000, 4.5],
-          ['March', 30000, 14.3],
-          ['April', 50000, 0.9],
-          ['May', 60000, 13.1]
-          
-          
+          ['Year', 'Sales', 'Expenses', 'Profit'],
+          ['2014', 1000, 400, 200],
+          ['2015', 1170, 460, 250],
+          ['2016', 660, 1120, 300],
+          ['2017', 1030, 540, 350]
         ]);
 
-        var materialOptions = {
-          width: 900,
+        var options = {
           chart: {
-            title: 'Sales Growth Rates',
-            subtitle: 'Yearly Sales Records'
-          },
-          series: {
-            0: { axis: 'Sales' }, // Yearly Sales Records'.
-            1: { axis: 'Energy' } // Yearly Energy Records'.
-          },
-          axes: {
-            y: {
-              distance: {label: 'parsecs'}, // Left y-axis.
-              brightness: {side: 'right', label: 'apparent magnitude'} // Right y-axis.
-            }
+            title: 'Company Performance',
+            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
           }
         };
 
-        var classicOptions = {
-          width: 900,
-          series: {
-            0: {targetAxisIndex: 0},
-            1: {targetAxisIndex: 1}
-          },
-          title: 'Nearby galaxies - distance on the left, brightness on the right',
-          vAxes: {
-            // Adds titles to each axis.
-            0: {title: 'parsecs'},
-            1: {title: 'apparent magnitude'}
-          }
-        };
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
 
-        function drawMaterialChart() {
-          var materialChart = new google.charts.Bar(chartDiv);
-          materialChart.draw(data, google.charts.Bar.convertOptions(materialOptions));
-        }
-
-       
-
-        drawMaterialChart();
-    };
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
     </script>
+    </script>
+
+    <!--End of Bar Charts -->
+
+    <!--PIE Charts -->
+    <script>
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        
+        function drawChart() {
+            
+            var data = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['Work',     11],
+                ['Eat',      2],
+                ['Commute',  2],
+                ['Watch TV', 2],
+                ['Sleep',    7]
+            ]);
+            
+            var options = {
+                title: 'My Daily Activities'
+            };
+            
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            
+            chart.draw(data, options);
+        }
+        </script>
+
+<!--Line Charts -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['line']});
+      google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'Day');
+      data.addColumn('number', 'Guardians of the Galaxy');
+      data.addColumn('number', 'The Avengers');
+      data.addColumn('number', 'Transformers: Age of Extinction');
+
+      data.addRows([
+        [1,  37.8, 80.8, 41.8],
+        [2,  30.9, 69.5, 32.4],
+        [3,  25.4,   57, 25.7],
+        [4,  11.7, 18.8, 10.5],
+        [5,  11.9, 17.6, 10.4],
+        [6,   8.8, 13.6,  7.7],
+        [7,   7.6, 12.3,  9.6],
+        [8,  12.3, 29.2, 10.6],
+        [9,  16.9, 42.9, 14.8],
+        [10, 12.8, 30.9, 11.6],
+        [11,  5.3,  7.9,  4.7],
+        [12,  6.6,  8.4,  5.2],
+        [13,  4.8,  6.3,  3.6],
+        [14,  4.2,  6.2,  3.4]
+      ]);
+
+      var options = {
+        chart: {
+          title: 'Box Office Earnings in First Two Weeks of Opening',
+          subtitle: 'in millions of dollars (USD)'
+        },
+        width: 900,
+        height: 500,
+        axes: {
+          x: {
+            0: {side: 'top'}
+          }
+        }
+      };
+
+      var chart = new google.charts.Line(document.getElementById('line_top_x'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+  </script>
 
 </body>
 

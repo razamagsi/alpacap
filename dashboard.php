@@ -142,8 +142,8 @@ $total = mysqli_num_rows($data);
 
     <!-- dashboard -->
 
-    <main class="mt-5 pt-3  card-body border-0">
-        <div class="container-fluid ">
+    <main class="mt-5 pt-3 card-body border-0">
+        <div class="container-fluid col-sm-12 col-12 ">
             <div class=" row ">
                 <div class="col-md-12 ">
                     <h4>Dashboard</h4>
@@ -201,12 +201,12 @@ $total = mysqli_num_rows($data);
             </div>
 
             <div class="row">
-                <div class="col-md-12 mb-3 col-12">
+                <div class="col-md-12 mb-3">
                     <div class="card">
                         <div class="card-header ">
                             <span><i class="bi bi-table me-2 "></i></span> Complaints
                         </div>
-                        <div class="card-body col-md-12 mb-3 col-12 ">
+                        <div class="card-body mb-3 ">
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -217,7 +217,7 @@ $total = mysqli_num_rows($data);
                                         
                                     </tr>
                                 </thead>
-                                <tbody class="col-md-12 mb-3 col-12" >
+                                <tbody class="col-md-12 mb-3 col-12 col-sm-12" >
                                <?php
                                     if($total != 0){
                                         while($result = mysqli_fetch_assoc($data)){
@@ -231,7 +231,7 @@ $total = mysqli_num_rows($data);
                                             </tr> 
                                            
                                            <?php 
-                                        }    
+                                        }   
                                     }
                                      
                                     else{
