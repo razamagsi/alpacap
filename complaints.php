@@ -75,10 +75,10 @@ else{
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="seller.php" class="nav-link px-3">
+                                    <a href="state.php" class="nav-link px-3">
                                         <span class="me-2"><i class="bi bi-shop-window"></i
                       ></span>
-                                        <span>Seller</span>
+                                        <span>State</span>
                                     </a>
                                 </li>
 
@@ -108,10 +108,10 @@ else{
                         <hr class="dropdown-divider bg-light" />
                     </li>
                     <li>
-                        <a href="sales.php" class="nav-link px-3">
-                            <span class="me-2"><i class="bi bi-cart-check-fill"></i
+                        <a href="statistics.php" class="nav-link px-3">
+                            <span class="me-2"><i class="bi bi-graph-up"></i
         ></span>
-                            <span>Sales</span>
+                            <span>Statistics</span>
                         </a>
                     </li>
                     <li class="my-2">

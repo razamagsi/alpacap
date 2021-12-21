@@ -10,6 +10,16 @@ else{
     header('location: login.php');
     
 }
+include("connection.php");
+// Pie Chart for Order
+//$query = "select status, count(*) as orders from orders group by status";
+//$sql = mysqli_query($conn, $query);
+//$orders = array(); 
+//while($result = mysqli_fetch_assoc($sql)){
+   
+// $orders [] = "['". $result['status']."],";
+//}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,9 +33,11 @@ else{
     <link rel="stylesheet" href="css/dataTables.bootstrap5.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     
-    <title>ALPACA-Sales</title>
+  
+    <title>ALPACA-Statistics</title>
+    
 </head>
-
+    
 <body>
     <!-- top navigation bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -109,11 +121,11 @@ else{
                     </li>
                     <li>
                         <a href="#" class="nav-link px-3 active">
-                            <span class="me-2"><i class="bi bi-cart-check-fill"></i
-        ></span>
-                            <span>Sales</span>
+                            <span class="me-2"><i class="bi bi-graph-up"></i></span>
+                            <span>Statistics</span>
                         </a>
                     </li>
+                    
                     <li class="my-2">
                         <hr class="dropdown-divider bg-light" />
                     </li>
@@ -129,7 +141,7 @@ else{
         <div class="container-fluid ">
             <div class=" row ">
                 <div class="col-md-12 ">
-                    <h4>Sales</h4>
+                    <h4>Statistics</h4>
                 </div>
             </div>
   
@@ -197,16 +209,20 @@ else{
         function drawChart() {
             
             var data = google.visualization.arrayToDataTable([
-                ['Task', 'Hours per Day'],
-                ['Work',     11],
-                ['Eat',      2],
-                ['Commute',  2],
-                ['Watch TV', 2],
-                ['Sleep',    7]
+                ['Ordes', 'Per Month'],
+                
+                 
+                
+        
+                ['Confirmed',     11],
+                ['Pending',      2],
+                ['Dispatched',  2],
+                ['Deliverd', 2],
+                ['Cancelled',    7]
             ]);
             
             var options = {
-                title: 'My Daily Activities'
+                title: 'Orders Details'
             };
             
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -248,8 +264,8 @@ else{
 
       var options = {
         chart: {
-          title: 'Box Office Earnings in First Two Weeks of Opening',
-          subtitle: 'in millions of dollars (USD)'
+          title: 'New Buyers',
+          subtitle: 'Per Month'
         },
         width: 900,
         height: 500,
@@ -265,7 +281,6 @@ else{
       chart.draw(data, google.charts.Line.convertOptions(options));
     }
   </script>
-
 </body>
 
 </html>
